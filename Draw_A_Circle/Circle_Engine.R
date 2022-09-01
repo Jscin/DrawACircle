@@ -68,45 +68,45 @@ if(betaMode == TRUE){
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #### * Input Section ####
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    radius <- readline(prompt = "Enter any radius greater than 0 (mm): ") 
-    radius <- as.double(radius) #mm
+    beta.radius <- readline(prompt = "Enter any radius greater than 0 (mm): ") 
+    beta.radius <- as.double(beta.radius) #mm
     
-    x <- readline(prompt = "Enter the center x value (mm): ") 
-    x <- as.double(x)#mm
+    beta.x <- readline(prompt = "Enter the center x value (mm): ") 
+    beta.x <- as.double(beta.x)#mm
     
-    y <- readline(prompt = "Enter the center y value (mm): ")
-    y <- as.double(y)#mm
+    beta.y <- readline(prompt = "Enter the center y value (mm): ")
+    beta.y <- as.double(beta.y)#mm
     
-    resolution <- readline(prompt = "Enter any resolution greater than 0 (dot/mm): ")
-    resolution <- as.double(resolution)#mm/dot
+    beta.resolution <- readline(prompt = "Enter any resolution greater than 0 (dot/mm): ")
+    beta.resolution <- as.double(beta.resolution)#mm/dot
     
-    plotIsPlotly <- readline(prompt = "Enter 1 for plotly and 0 for ggplot: ")
-    plotIsPlotly <- as.integer(plotIsPlotly)
+    beta.plotIsPlotly <- readline(prompt = "Enter 1 for plotly and 0 for ggplot: ")
+    beta.plotIsPlotly <- as.integer(beta.plotIsPlotly)
     
-    if(plotIsPlotly == 1)
+    if(beta.plotIsPlotly == 1)
     {
-      isPlotly <- TRUE
+      beta.isPlotly <- TRUE
     }
     else
     {
-      isPlotly <- FALSE
+      beta.isPlotly <- FALSE
     }
     
-    while(radius <= 0) #Forces a radius higher than 0, as any lower breaks the graph
+    while(beta.radius <= 0) #Forces a radius higher than 0, as any lower breaks the graph
     {
-      radius <- readline(prompt = "Radius cannot be zero, please enter a higher value: ")
-      radius <- as.double(radius)
+      beta.radius <- readline(prompt = "Radius cannot be zero, please enter a higher value: ")
+      beta.radius <- as.double(beta.radius)
     }
     
-    while(resolution <= 0) #Forces a resolution higher than 0, as any lower breaks the graph
+    while(beta.resolution <= 0) #Forces a resolution higher than 0, as any lower breaks the graph
     {
-      resolution<- readline(prompt = "Resolution cannot be zero, please enter a higher value: ")
-      resolution <- as.double(resolution)
+      beta.resolution<- readline(prompt = "Resolution cannot be zero, please enter a higher value: ")
+      beta.resolution <- as.double(beta.resolution)
     }
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #### * Output Section ####
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    data <- Calcpoints(radius = radius, x = x, y = y, resolution = resolution) #Returns the dataframe containing the coordinates
-    graphCircle(usePlotly = isPlotly, data = data, x = x, y = y) #Outputs a plotly plot if isPlotly is true, if false then it outputs a ggplot plot
+    beta.data <- Calcpoints(radius = beta.radius, x = beta.x, y = beta.y, resolution = beta.resolution) #Returns the dataframe containing the coordinates
+    graphCircle(usePlotly = beta.isPlotly, data = beta.data, x = beta.x, y = beta.y) #Outputs a plotly plot if isPlotly is true, if false then it outputs a ggplot plot
 }
