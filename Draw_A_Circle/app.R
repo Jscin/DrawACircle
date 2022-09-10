@@ -10,7 +10,7 @@
 library(shiny)
 source("Circle_Engine.R")
 
-# Define UI for application that draws a histogram
+# Define UI for application that draws a circle
 ui <- fluidPage(
     # Application title
     titlePanel("Draw A Circle"),
