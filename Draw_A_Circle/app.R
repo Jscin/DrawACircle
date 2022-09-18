@@ -8,6 +8,8 @@
 #
 
 library(shiny)
+library(ggplot2)
+library(plotly)
 source("Circle_Engine.R")
 
 # Define UI for application that draws a histogram
@@ -45,10 +47,9 @@ ui <- fluidPage(
 
         # Show a plot of the generated circle
         mainPanel(
-          fluidRow( #Changes which graph depending on which radio button is selected
+          fluidRow( #Changes which graph depending on which radio button is selected # nolint
             conditionalPanel(condition = "input.plotlyOrGGPlot == 'plotly'", plotlyOutput("circPlotly")),
-            conditionalPanel(condition = "input.plotlyOrGGPlot == 'ggplot'", plotOutput("circGGPlot"))
-            
+            conditionalPanel(condition = "input.plotlyOrGGPlot == 'ggplot'", plotOutput("circGGPlot"))  
           )
         )
     )
@@ -74,7 +75,7 @@ server <- function(input, output)
       
       if(graphType == "plotly")
       {
-        output$circPlotly <-renderPlotly({
+        output$circPlotly <- renderPlotly({
         graphCircle(usePlotly = TRUE, data = data, x = xCent, y = yCent) #Output the plotly graph
         })
       }
